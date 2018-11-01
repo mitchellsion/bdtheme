@@ -41,6 +41,8 @@ function genereate_side_menu(callback){
                 sidebarHeader = r.message.sort((a,b) => (a.urutan > b.urutan) ? 1 : ((b.urutan > a.urutan) ? -1 : 0));
                 console.log("Sidebar Header", sidebarHeader);
                 funcGetSidebarItem();
+            }else{
+                funcGenerate();
             }
         }
     });
@@ -58,6 +60,8 @@ function genereate_side_menu(callback){
                 if(r.message){
                     sidebarMenu = r.message.sort((a,b) => (a.urutan > b.urutan) ? 1 : ((b.urutan > a.urutan) ? -1 : 0));
                     console.log("Sidebar Menu", sidebarMenu);
+                    funcGenerate();
+                }else{
                     funcGenerate();
                 }
             }

@@ -15,7 +15,7 @@ def get_resource_complete(parent_table, child_tables):
     parent = frappe.db.sql("SELECT * FROM `%s`" % parent_table, as_dict=True)
     parent_length = len(parent)
     for child in child_tables:
-        tmp = frappe.db.sql("SELECT * FROM `%s`" % child[1], as_dict=True)
+        tmp = frappe.db.sql("SELECT * FROM `%s` ORDER BY idx" % child[1], as_dict=True)
         ln = len(tmp)
         for i in range(ln):
             for j in range(parent_length):
@@ -25,3 +25,8 @@ def get_resource_complete(parent_table, child_tables):
                     parent[j][child[0]].append(tmp[i])
                     break
     return parent
+
+@frappe.whitelist()
+def get_theme_setting():
+    data  = frappe.db.sql("""SELECT * FROM `tabSingles` WHERE doctype = 'Theme Setting' """, as_dict=1)
+    return data

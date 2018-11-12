@@ -94,6 +94,7 @@
 .skin-blue .treeview-menu > li.active > a,
 .skin-blue .treeview-menu > li > a:hover {
   color: #ffffff;
+  text-decoration: underline;
 }
 .skin-blue .sidebar-form {
   border-radius: 3px;
@@ -136,4 +137,12 @@
 }
 .skin-blue.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
+}
+
+body.hide-left-menu .page-container:not(#page-modules) .layout-main-section-wrapper{
+    width: 100%;
+}
+
+body.hide-left-menu .page-container:not(#page-modules) .layout-side-section{
+    display: none;
 }
